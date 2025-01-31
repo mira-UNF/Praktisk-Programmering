@@ -13,3 +13,14 @@ Gamme function of 7 is 719,99999212673
 Gamme function of 8 is 5039,99994488711
 Gamme function of 9 is 40319,9995590969
 Gamme function of 10 is 362879,997652016
+Lngamma function of 1 is -1,09350976051914E-08
+Lngamma function of 2 is -1,09350976051914E-08
+Lngamma function of 3 is 0,693147169624848
+Lngamma function of 4 is 1,79175945829296
+Lngamma function of 5 is 3,17805381941285
+Lngamma function of 6 is 4,78749173184695
+Lngamma function of 7 is 6,579251201075
+Lngamma function of 8 is 8,52516135013032
+Lngamma function of 9 is 10,6046028918102
+Lngamma function of 10 is 12,8018274736111
+If the lngamma is correct the first two output should be zero as they amount to ln(1)

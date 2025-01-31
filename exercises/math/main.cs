@@ -22,14 +22,21 @@ class Program{
 	//pi to the power of e
 	double res3 = Math.Pow(Math.PI,Math.E);
 	Console.WriteLine($"pi to the power of e is {res3}");
-	
+
 	for (int i = 1; i <= 10; i++){
 
 		//gamme function
 		double res4 = sfuns.fgamma(i);
-		Console.WriteLine($"Gamme function of {i} is {res4}"); 
+		Console.WriteLine($"Gamme function of {i} is {res4}");
 		}
 
+	for (int i = 1; i <= 10; i++){
+		//lngamma function
+		double res5 = sfuns.lnfgamma(i);
+		Console.WriteLine($"Lngamma function of {i} is {res5}");
+
+		}
+	Console.WriteLine($"If the lngamma is correct the first two output should be zero as they amount to ln(1)");
 	}
 
 }
