@@ -1,0 +1,31 @@
+######Notes Lecture 3#############
+
+Class vs Structs:
+	A class is always passed as a reference (safe pointer) and struct is always passed by value (ie. a copy is made which can be memory intensive)
+	If one has to variables equal to the same reference, then these refer to the same object so making changes to one also changes the other, as they 
+	just point to the same object. If it is pass by value, then two variables will not be the same after changing one of them even though they are set
+	to be equal.
+
+	If you want to copy something that is usually passed by reference one has to do "a = b.copy"
+
+	If you want to referencee something that is normally passed by value one can write "double& z=x" which will let z point to the same place in the
+	memory as x.
+
+Integer vs Doubles:
+	Integers are always represented exactly, where for doublse its only powers of 2 that can be expressed exactly, while decimals can't be due to the
+	binary nature of the computer. Thus, doubles can't be compared absolutely and thus one must compare them within some accuracy.
+
+Method:
+	This is just a function that is defined inside a class
+
+Constructor:
+	In c# when an object is made via a class the constructor is called. When making an instance of an object class then if one wishes to use
+	the default constructor in c# on must write "vec v = new vec()" for example.
+
+Overloading:
+	This is functions with the same name, but different types and parameters - thus one can fx. change multiplication operator to scalar product for a
+	vector class. In c# the "=" operator can't be overloaded.
+
+Destructor:
+	In c# one doesn't have to define a destructor as the garbage collector takes care of stuff.
+

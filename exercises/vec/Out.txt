@@ -1,0 +1,13 @@
+Test Creation -  vector u = (2,1,1) and vector v = (1,2,1)
+
+Test Addition - vector w = u+v = (3,3,2) - test passed? - True
+
+Test Inversion - -u = (-2,-1,-1) - test passed? - True
+
+Test Subtraction - w = u-v = (1,-1,0) - test passed? - True
+
+Test Constant Multiplication - w = 2*u = (4,2,2) and w2 = u*2 = (4,2,2) - test passed? - True
+
+Test Dot Product - v dot u = 5 - test passed? - True
+
+This should output 2,1,1 - it outputs 2 1 1

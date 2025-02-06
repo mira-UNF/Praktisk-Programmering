@@ -1,0 +1,89 @@
+####Lecture 2 - structure of a program####
+	we always start at program by making a makefile, inside that we make all the necessarry files from (in our case) c# code found in the project
+	here we also specify the compiler such as mono
+
+	Automatic Variables:
+		in order not to write things two times, one can use them such as
+			
+		Out.txt : main.exe
+		mono $< > $@
+
+		where "$<" is the Out.txt and "$@" is the main.exe, then we can refer to those two things using the automatic variables (denoted by the "$")
+
+	Libraries: 	
+		when we need to call a lot of functions (more than just a couple of lines) its nice to seperate these functions and the main file, for example in the makefile
+	
+		sfuns.dll : sfuns.cs
+		mcs -target:library -out:sfuns.dll sfuns.cs
+
+		this makes a library that we can then use in the main.cs file out of the sfuns.cs file
+
+	clean functionality:
+		in the makefile it is often nice to have the clean (mark it as .PHONEY: clean if a file in project is also named clean), this should not be run every time.
+
+
+	Scope:
+		in c# one can group things in a namespace such as System.Math then one can call stuff from this such as Math.PI
+	
+		in c# there must be one function called "static int Main" which then runs everything else. This can either receive arguments or none. It is often nice to let
+		it return an int (fx. 0) if everything went well, then one can check if this has happened and use a wrong return, such as 1, as a break condition for the program
+
+		in c# the namespace is a way to access the Global scope, where in general variables are often confined to their given classes/functions
+	
+		The scope in c# is called lexical
+
+		A function is a block of code inside curly brackets with a type and a name. If there is a type, the function must return an object of that type. It can take
+		other parameters, but these must again be of the specified type.
+
+		If one defines a variable inside a function, then it is only defined inside the "scope" of said function and cant be referred to outside of that.
+
+		A class is also a given scope, where one can define variables and these will be acceessible in all lower scopes, fx:
+
+		static class main{
+			static string class_variable="class variable";
+
+			static double square(double x){
+				result = x*x;
+				return result;
+				}
+		}	
+
+		outside the class, things have to be referred to as class_name.thing, in so far that these variables are public, if the are private they cant be
+		accessed outside of that class
+
+		a static class can only contain static variables
+
+	Compiling/Linking Programs:
+		The compiler takes the source code (main.cs) and translates it into byte-code. During compilation the compiler checks a bunch of things and optimizes
+		it a lot.
+
+		linking is the combining of multiple executables or libraries into a final executable or library
+
+	Single compilation:
+		One can also just compile singular files such as to avoid compiling already working files over and over again.	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
