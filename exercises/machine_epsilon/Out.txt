@@ -1,0 +1,30 @@
+my max int = 2147483647
+
+Compared to the maximum integer 2147483647
+
+my min int = -2147483648
+
+Compared to the minimum integer -2147483648
+
+Machine epsilon for double is 2,22044604925031E-16 
+
+We expect it to be 2,22044604925031E-16 for double
+
+Machine epsilon for float is 1,192093E-07
+
+We expect it to be 1,19209289550781E-07 for single point float
+
+a==b ? False
+
+a>1  ? False
+
+b>1  ? True
+
+Explanation - a>1 returns false as adding tiny to 1 rounds to 1, also the second time. Thus a = 1 and not >1
+b>1 returns true as we first add tiny to tiny, which yields exactly our epsilon, which is then added to 1, so b is slightly larger than 1
+then, as a = 1 and b is slightly larger it returns false to the question of them being equal.
+
+d1=7,999999999999999e-001
+d2=8,000000000000000e-001
+d1==d2 ? => False
+Testing the new approx comparison - d1==d2 ? => True
