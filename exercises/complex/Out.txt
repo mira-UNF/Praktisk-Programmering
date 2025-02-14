@@ -1,0 +1,14 @@
+square root of -1 - 6,12e-17+1i, sqrt(-1)  == i -> True 
+
+square root of i - 0,707+0,707i, sqrt(i) == 0.707 + 0.707i -> True
+
+e^i - 0,54+0,841i, e^i == cos(1)+sin(1)i -> True
+
+e^ipi - -1+1,22e-16i, e^ipi == -1 -> True 
+
+i^i -  0,208+0i, i^i == 0.208 -> True 
+
+ln(i) - 0+1,57i, ln(i) == i pi/2 -> True 
+
+sin(i pi) - 0+11,5i, sin(i pi) == 11.54i -> True
+
