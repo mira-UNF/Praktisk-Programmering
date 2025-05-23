@@ -1,0 +1,12 @@
+----------------PART A------------------
+The Rosenbrock valley function was found to have a root at (0,99993271594266,0,999846062991469)
+Does this match the expected root at (1,1)? YES
+
+The Himmelblau function was found to have a root at (3,00005666722072,1,99998427424396)
+Does this match any expected root? YES
+The Himmelblau function was found to have a root at (-2,80511808376285,3,13131448529899)
+Does this match any expected root? YES
+The Himmelblau function was found to have a root at (-3,77931032193396,-3,28318619675233)
+Does this match any expected root? YES
+The Himmelblau function was found to have a root at (3,58442837867854,-1,84812695083142)
+Does this match any expected root? YES
