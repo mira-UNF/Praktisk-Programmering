@@ -10,3 +10,46 @@ The Himmelblau function was found to have a root at (-3,77931032193396,-3,283186
 Does this match any expected root? YES
 The Himmelblau function was found to have a root at (3,58442837867854,-1,84812695083142)
 Does this match any expected root? YES
+
+----------------PART B------------------
+The found root is: E0 = -0,501868624707236
+Whereas the expected result is -0.5.
+A plot of the numerical wavefunction (dots) vs the analytical one (line) can be found in wavefunction.png
+
+The test of convergence can be found in the seperate .png files named after each parameter that is varied
+The analytical value is plotted as a line, while the numerical values are plotted as dots
+Doing rmax convergence test...
+1 out of 5
+2 out of 5
+3 out of 5
+4 out of 5
+5 out of 5
+
+rmax convergence test done
+
+Doing  rmin convergence test...
+1 out of 5
+2 out of 5
+3 out of 5
+4 out of 5
+5 out of 5
+
+rmin convergence test done
+
+Doing acc convergence test...
+1 out of 5
+2 out of 5
+3 out of 5
+4 out of 5
+5 out of 5
+
+acc convergence test done
+
+Doing eps convergence test...
+1 out of 5
+2 out of 5
+3 out of 5
+4 out of 5
+5 out of 5
+
+eps convergence test done
