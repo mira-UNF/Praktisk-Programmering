@@ -64,29 +64,43 @@ public static class minimizer {
 				break;
 			}
 
-			// if(iteration % 10 == 0) {Console.Write($"\rIterations -  {iteration}");}
+			//Console.Write($"\rIterations -  {iteration}");
+			//if(iteration % 10 == 0) {Console.Write($"\rIterations -  {iteration}");}
 
 			/*Finding the Newton step size*/
 			vector grad_f = gradient(f,x);
 
-			if(grad_f.norm() < acc) break; //jobs done
+			//if(grad_f.norm() < acc) break; //jobs done
 
 			matrix H = hessian(f,x);
 
 			(matrix Q, matrix R) = QR_GS.decomp(H);
 			vector dx = QR_GS.solve(Q,R,-grad_f);
 
+			//Console.WriteLine($"Iteration {iteration}: grad norm = {grad_f.norm()}, dx norm = {dx.norm()}, acc = {acc}");
+
+			if (grad_f.norm() < acc || dx.norm() < acc){
+			Console.WriteLine("Converged: small gradient or step");
+			break;
+			}
+
+
 			/*Backtracking linesearch*/
 			double lam = 1.0;
 			do{
 
-				if(lam < 1/1024) break; //very small step, just accept it
+				//Console.WriteLine($"  lam = {lam:E}, f(x+lam*dx) = {f(x + lam*dx)}, f(x) = {f(x)}");
+
+				if(lam < 1.0/1024.0) break; //very small step, just accept it
 
 				if(f(x+lam*dx) < f(x)) break; //good step
 
 				lam /= 2;
 
 			}while(true);
+
+			double fx = f(x);
+			//Console.WriteLine($"#{iteration}: f = {fx:F4}, ||grad|| = {grad_f.norm():F4}, step = {lam*dx.norm():E}");
 
 			x = x+lam*dx;
 

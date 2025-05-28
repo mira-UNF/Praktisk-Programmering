@@ -1,9 +1,17 @@
 --------------------------------PART A--------------------------------
 Testing the minimization on the Rosenbrock function with an expected minimum at (1,1)
+Converged: small gradient or step
 The found minimum is at (0,999998505197706,0,999999255534992) in 6 iterations
 Does this match with the expected? - YES
 
 Testing the minimization on the Himmelblau function with several known minima (see wiki)
+Converged: small gradient or step
 The found minimum is at (2,99999932113559,2,00000251514668) in 5 iterations
 Does this match any expected minimum? YES
 --------------------------------PART B--------------------------------
+Timeout error - maximum iterations reached without convergence :(
+The minimizing parameters for the Breit-Wigner fit of the Higgs data is
+m = 125,725962399546 [GeV]
+Gamma = 7,1824655430691 [arb. u.]
+A = 66,6724341194174 [arb. u.]
+These were found in 1001 iterations
