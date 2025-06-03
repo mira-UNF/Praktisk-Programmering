@@ -100,7 +100,7 @@ class Program{
 
 		WriteLine("-----------------PART A,B and C---------------------");
 		WriteLine($"The half-life estimated from the fit is: {T_half}±{dT_half} days");
-		WriteLine("This value is now known to be: 3.66 days (http://nucleardata.nuclear.lu.se/toi/nuclide.asp?iZA=880224), so it matches decently well.");
+		WriteLine("This value is now known to be: 3.66 days (http://nucleardata.nuclear.lu.se/toi/nuclide.asp?iZA=880224), so it matches decently well all things considered, but the modern value is not within the uncertainty.");
 		WriteLine("The fit can be found in fit_and_data.png where it is plotted as the solid line, the dotted lines are the +-uncertainty on the fit coefficients.");
 
 	}
