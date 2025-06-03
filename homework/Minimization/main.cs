@@ -115,6 +115,7 @@ class main{
 		WriteLine($"Gamma = {Higgs_min[1]} [arb. u.]");
 		WriteLine($"A = {Higgs_min[2]} [arb. u.]");
 		WriteLine($"These were found in {iterations3} iterations");
+		WriteLine("A plot of the fit can be found in Higgs.png");
 
 		/*Creating datafile for fit*/
 		List<double> linspace = new List<double>();

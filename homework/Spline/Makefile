@@ -13,12 +13,14 @@ QSPLINE_INTEG = qspline_integ.txt
 QSPLINE_DERIV = qspline_deriv.txt
 PLOT_QSPLINE = qspline.png
 
-all: $(EXEC) run $(PLOT_LINTERP) $(PLOT_QSPLINE)
+all: $(EXEC) run $(PLOT_LINTERP) $(PLOT_QSPLINE) Out.txt
 
 run: $(EXEC)
 	rm -f $(DATA_LINTERP)  # Remove old file
 	mono $(EXEC)           # Generate new data
 
+Out.txt: $(EXEC)
+	mono $(EXEC) > Out.txt
 
 # Compile the C# program
 $(EXEC): $(SRC) matrix.dll

@@ -141,6 +141,13 @@ class main{
 			precession_orbit.WriteLine($"{xprint.ToString(CultureInfo.InvariantCulture)} {yprint.ToString(CultureInfo.InvariantCulture)}");
 		}
 		precession_orbit.Close();
+
+
+		WriteLine("--------------------PART A----------------------");
+		WriteLine("The solution to the simple harmonic oscillator and the damped harmonic oscillator can be found in simple_harmonic.png and damped_harmonic.png respectively.");
+		WriteLine("--------------------PART B----------------------");
+		WriteLine("The solutions to the different orbits can be found in circular_orbit.png, elliptical_orbit.png and precesseion_orbit.png");
+
 	}
 
 

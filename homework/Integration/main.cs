@@ -9,6 +9,8 @@ class main {
 	static void Main(){
 		/*--------------------------PART A----------------------------*/
 
+		WriteLine("---------------------PART A-----------------------");
+
 		/*Checking the implementation against some integrals*/
 		Func<double, double> f;
 
@@ -85,7 +87,7 @@ class main {
 		WriteLine("");
 
 		/*----------------------------PART B----------------------------*/
-		WriteLine("--------------------------------------------------------");
+		WriteLine("--------------------------PART B-------------------------------");
 		WriteLine("Checking some integrals using the Clenshaw-Curtis variable transformation");
 		WriteLine("");
 

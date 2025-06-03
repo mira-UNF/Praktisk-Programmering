@@ -1,6 +1,7 @@
 -----------------------PART A-------------------------
 The unit circle area integration error can be found in unit_circle.png, the solid line is the estimated error, the dotted line is the actual error
 The difficult singular integral should evaluate to approx 1.3932039296856768591842462603255
-The MC integrator evaluates it to be 1,46203507621513 with an error of 0,082479769096225 and 4000 points
+The MC integrator evaluates it to be 1,40471011603902 with an error of 0,050878907013748 and 4000 points
+---------------------PART A---------------------
 The comparison between the plain and quasi random MC integration can be found in comparison.png
 The solid line is 1/Sqrt(N) and the dashed line is the quasi random method

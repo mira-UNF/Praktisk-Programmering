@@ -1,0 +1,35 @@
+---------------------PART A-----------------------
+Checking some integrals to test the integrator class
+----------------------------------------------------
+Integral 1 --- Sqrt(x) from 0 to 1 ---  2/3 = 0,666842141052186 is True
+The error is --- 7,84816424724417E-05
+
+
+Integral 2 --- 1/Sqrt(x) from 0 to 1 ---  2 = 1,99994761363474 is True
+The error  is --- 8,65208608017456E-05
+
+
+Integral 3 --- 4*Sqrt(1-x^2) from 0 to 1 ---  PI = 3,14179861130019 is True
+The error is --- 0,000309056447386651
+
+
+Integral 4 --- Log(x)/Sqrt(x) from 0 to 1 --- -4 = -3,99990588808826 is True
+The error is --- 0,000180600665580541
+
+
+The comparison between tabulated (circles) and the calculated erf(x) can be found in erf_comparison.png
+
+The accuracy plot of erf(1) can be found  in accuracy_erf.png
+
+--------------------------PART B-------------------------------
+Checking some integrals using the Clenshaw-Curtis variable transformation
+
+Integral of  1/√(x) from 0 to 1 yields 1,99999943123657 with an error of 0,000374373263717326
+This integral was evaluated in 75 iterations, it took python 231
+
+Integral of ln(x)/√(x) from 0 to 1 yields -3,99987259583431 with an error of 0,000227537529008769
+This integral was evalued in 159 iterations, it took python 315
+
+Integral of e^(-x^2) from -infty to +infty yields 1,77239415866347 with an error of 8,05967802006476E-05
+This integral was evaluated  in 127 iterations, it took python 270
+

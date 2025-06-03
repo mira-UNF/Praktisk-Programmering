@@ -8,10 +8,13 @@ PLOT_ERF = erf_comparison.png
 ACC_ERF = accuracy_erf.txt
 PLOT_ACC = accuracy_erf.png
 
-all: $(EXEC) $(TAB_ERF) $(CALC_ERF) $(PLOT_ERF) $(ACC_ERF) $(PLOT_ACC)
+all: Out.txt $(EXEC) $(TAB_ERF) $(CALC_ERF) $(PLOT_ERF) $(ACC_ERF) $(PLOT_ACC)
 
 $(TAB_ERF) $(CALC_ERF) $(ACC_ERF): $(EXEC)
 	mono $(EXEC)
+
+Out.txt: $(EXEC)
+	mono $(EXEC) > Out.txt
 
 $(EXEC): $(SRC) matrix.dll
 	mcs -target:exe -out:main.exe main.cs -reference:matrix.dll

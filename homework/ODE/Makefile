@@ -18,7 +18,10 @@ PLOT_ELLIP = elliptical_orbit.png
 PRECESS = precession_orbit.txt
 PLOT_PRECESS = precession_orbit.png
 
-all: $(SHO) $(PLOT_SHO) $(DAMP) $(PLOT_DAMP) $(CIRC) $(PLOT_CIRC) $(ELLIP) $(PLOT_ELLIP) $(PRECESS) $(PLOT_PRECESS)
+all: Out.txt  $(SHO) $(PLOT_SHO) $(DAMP) $(PLOT_DAMP) $(CIRC) $(PLOT_CIRC) $(ELLIP) $(PLOT_ELLIP) $(PRECESS) $(PLOT_PRECESS)
+
+Out.txt: $(EXEC)
+	mono $(EXEC) > Out.txt
 
 $(EXEC): $(SRC) matrix.dll
 	mcs -target:exe -out:main.exe main.cs -reference:matrix.dll

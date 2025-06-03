@@ -23,6 +23,8 @@ public class Program{
 			}
 		}
 
+		WriteLine("--------------------PART A--------------------");
+
 		//TEST RND MATRIX
 		//A.print("A");
 
@@ -75,6 +77,8 @@ public class Program{
 		WriteLine($"determinant of A is {QR_GS.det(R)}");
 
 
+		WriteLine("------------------PART B-------------------");
+
 		//TEST INVERSE
 		A = new matrix(5,5);
 
@@ -92,6 +96,9 @@ public class Program{
 
 		WriteLine($"Is the matrix B the inverse of A? {I.approx(A*B)}");
 
+
+		//A*B = I
+		WriteLine($"Is A*B = I? {I.approx(A*B)}");
 
 	}
 

@@ -98,9 +98,10 @@ class Program{
 		double T_half = Round(-Log(2)/c[1],5);  //half life of the radioactive source
 		double dT_half = Round(Log(2)*Sqrt(Pow(cov[1][1]/c[1],2)),5); //Error on the half life
 
+		WriteLine("-----------------PART A and B---------------------");
 		WriteLine($"The half-life estimated from the fit is: {T_half}±{dT_half} days");
 		WriteLine("This value is now known to be: 3.66 days (http://nucleardata.nuclear.lu.se/toi/nuclide.asp?iZA=880224), so it matches decently well.");
-
+		WriteLine("The fit can be found in fit_and_data.png where it is plotted as the solid line, the dotted lines are the +-uncertainty on the fit coefficients.");
 
 	}
 }

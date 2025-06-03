@@ -105,5 +105,9 @@ class main {
 		qinteg_stream.Close();
 		qderiv_stream.Close();
 
+		WriteLine("----------------------PART A--------------------");
+		WriteLine("The linear interpolation can be found in linterp.png where the solid lines is the linear interpolation, the dotted line is the anti-derivative.");
+		WriteLine("----------------------PART B--------------------");
+		WriteLine("The quadratic interpolation can be foind in qspline.png where the solid line is the interpolation, the dotted line is the integral, and the dotted-dashed line is the derivative.");
 	}
 }

@@ -84,6 +84,8 @@ class main {
 		}
 		unit_circle_qrand_estimated.Close();
 
+		WriteLine("---------------------PART A---------------------");
+
 		WriteLine("The comparison between the plain and quasi random MC integration can be found in comparison.png");
 		WriteLine("The solid line is 1/Sqrt(N) and the dashed line is the quasi random method");
 

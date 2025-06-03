@@ -1,0 +1,15 @@
+--------------------PART A--------------------
+Is R upper triangular?
+R
+      1,24       1,26        1,1        1,1       1,16 
+         0       1,39     0,0246      0,163      0,462 
+         0          0      0,684     0,0812      0,367 
+         0          0          0      0,832    0,00938 
+         0          0          0          0      0,784 
+Is QR=A? True
+Is Q orthognal? True
+Does x solve Ax=b? True
+determinant of A is 0,00835922380577667
+------------------PART B-------------------
+Is the matrix B the inverse of A? True
+Is A*B = I? True

@@ -15,7 +15,10 @@ BEST_FIT_MIN = best_fit_min.txt
 PLOT_IMG = fit_and_data.png
 
 # Default target: Run everything
-all: $(PLOT_IMG)
+all: $(PLOT_IMG) Out.txt
+
+Out.txt: $(EXEC)
+	mono $(EXEC) > Out.txt
 
 # Compile the C# program
 $(EXEC): $(SRC) matrix.dll

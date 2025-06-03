@@ -1,0 +1,4 @@
+----------------------PART A--------------------
+The linear interpolation can be found in linterp.png where the solid lines is the linear interpolation, the dotted line is the anti-derivative.
+----------------------PART B--------------------
+The quadratic interpolation can be foind in qspline.png where the solid line is the interpolation, the dotted line is the integral, and the dotted-dashed line is the derivative.
