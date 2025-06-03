@@ -1,4 +1,4 @@
------------------PART A and B---------------------
+-----------------PART A,B and C---------------------
 The half-life estimated from the fit is: 4,06242±0,00021 days
 This value is now known to be: 3.66 days (http://nucleardata.nuclear.lu.se/toi/nuclide.asp?iZA=880224), so it matches decently well.
 The fit can be found in fit_and_data.png where it is plotted as the solid line, the dotted lines are the +-uncertainty on the fit coefficients.
