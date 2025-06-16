@@ -1,9 +1,15 @@
 ---------------------------PART A-------------------------------
 This tests a simple neural network based on Newton minimisation
-It is implemented using an analytical gradient approach
+It is implemented using a numerical gradient approach
 The graph for part A can be found in plot_A.png
 Here the circles are the training data and the solid line is the network response
+
+PS - I could not get the analytical to work, but a quasi-newton worked fine, hope it is ok
 
 
 ---------------------------PART B-------------------------------
 The neural network can also output derivative, double derivative and anti derivative responses
+The different derivatives can be found in the graphs named plot_deriv.png, plot_dderiv.png etc.
+The normal function can be found in plot_B.png
+Again the circles are the data points/tabulated values and the solid line is the network response
+
