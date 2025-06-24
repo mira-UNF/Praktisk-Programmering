@@ -2,6 +2,7 @@ using System;
 using static System.Math;
 using static System.Console;
 using System.IO;
+using System.Random;
 using System.Globalization; // Import for invariant culture
 
 class main{
@@ -20,7 +21,8 @@ class main{
 		WriteLine("");
 		WriteLine("PART B) Make an estimate of the error of the method");
 		WriteLine("");
-		WriteLine("PART C) Try to do a nonlinear prediction instead, compare with the linear case");
+		WriteLine("PART C) Try to implement the predictor to do signal recovery");
+		WriteLine("");
 
 		WriteLine("--------------------------------PART A--------------------------------");
 
@@ -72,10 +74,61 @@ class main{
 
 		WriteLine("The plot of the complete signal compared to the predicted signal, which is for index 50 to 100, can be");
 		WriteLine("found in signal_prediction.png. The complete signal are the circles, the predicted is the solid line.");
+		WriteLine("");
 
 		WriteLine("--------------------------------PART B--------------------------------");
+		//Now trying to do an error estimation and comparing errors at different n values
+
+		var error_plot = new StreamWriter("error_vs_n.txt");
+		for(int j = 1; j < 7; j++){
+
+			//Doing the prediction
+			vector a2 = ls.predict(fitting_signal,j);
+			vector predicted_signal2 = ls.extrapolate(fitting_signal,a2,M);
+
+			//Calculating the error
+			double MSE = 0;
+
+			for(int i = 0; i < predicted_signal2.size; i++){
+				double error = predicted_signal2[i]-comparison_signal[i];
+				MSE += error*error;
+			}
+
+			MSE /= predicted_signal2.size;
+
+			//Writing the datafile
+			error_plot.WriteLine($"{j.ToString(CultureInfo.InvariantCulture)} {MSE.ToString(CultureInfo.InvariantCulture)}");
+		}
+		error_plot.Close();
+
+		WriteLine("To examine the error I have made a plot of mean squared error vs number of coefficients (n)");
+		WriteLine("This plot can be found in error_vs_n.png");
+		WriteLine("Now, even though it looks very nice it is important to remember that too many parameters");
+		WriteLine("can cause overfitting, which worsens the fit quality.");
+		WriteLine("");
+
 
 		WriteLine("--------------------------------PART C--------------------------------");
+		//Now I want to try and do signal recovery, so first I have to mess up my signal a bit
+
+		vector corrupted_signal = complete_signal.copy();
+
+		//Setting random places in my signal equal to +
+		Random rand = new Random();
+		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = -1000;
+		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = -1000;
+		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = -1000;
+		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = -1000;
+
+		//Writing the corrupted datafile
+		var corrupted = new StreamWriter("corrupted_signal.txt");
+		for(int i = 0; i < corrupted_signal.size; i++){
+			corrupted.WriteLine($"{i.ToString(CultureInfo.InvariantCulture)} {corrupted_signal[i].ToString(CultureInfo.InvariantCulture)}");
+		}
+		corrupted.Close();
+
+		//Now to do the actual recovery
+
 
 	}// End of Main()
 

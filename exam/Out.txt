@@ -11,9 +11,14 @@ PART A) Implement a least squares prediction method and show that it works, fx. 
 
 PART B) Make an estimate of the error of the method
 
-PART C) Try and use the method for signal recovery
+PART C) Try to implement the predictor to do signal recovery
+
 --------------------------------PART A--------------------------------
 The plot of the complete signal compared to the predicted signal, which is for index 50 to 100, can be
 found in signal_prediction.png. The complete signal are the circles, the predicted is the solid line.
 --------------------------------PART B--------------------------------
+To examine the error I have made a plot of mean squared error vs number of coefficients (n)
+This plot can be found in error_vs_n.png
+Now, even though it looks very nice it is important to remember that too many parameters
+can cause overfitting, which worsens the fit quality.
 --------------------------------PART C--------------------------------
