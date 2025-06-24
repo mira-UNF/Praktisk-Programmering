@@ -1,0 +1,19 @@
+--------------------------------Exercise Definition--------------------------------
+I had number 28 and have thus made the exercise as follows
+Introduction
+Least squares method can be used to find patterns (correlations) in a signal which can then be used to extrapolate the signal (see the lecture note).
+Task
+Implement a function with the signature vector predict(vector x, int n)
+that takes the signal vector and the number of terms as input and returns the vector of coefficients that can be used to extrapolate the signal using the linear prediction formula,
+
+I have interpreted the above task as the following
+PART A) Implement a least squares prediction method and show that it works, fx. by remaking figure 2 of the notes
+
+PART B) Make an estimate of the error of the method
+
+PART C) Try and use the method for signal recovery
+--------------------------------PART A--------------------------------
+The plot of the complete signal compared to the predicted signal, which is for index 50 to 100, can be
+found in signal_prediction.png. The complete signal are the circles, the predicted is the solid line.
+--------------------------------PART B--------------------------------
+--------------------------------PART C--------------------------------
