@@ -16,7 +16,7 @@ class main{
 		WriteLine("Implement a function with the signature vector predict(vector x, int n)");
 		WriteLine("that takes the signal vector and the number of terms as input and returns the vector of coefficients that can be used to extrapolate the signal using the linear prediction formula,");
 		WriteLine("");
-		WriteLine("I have interpreted the above task as the following");
+		WriteLine("I have interpreted the above task in an ABC-format in the following way");
 		WriteLine("PART A) Implement a least squares prediction method and show that it works, fx. by remaking figure 2 of the notes");
 		WriteLine("");
 		WriteLine("PART B) Make an estimate of the error of the method");
@@ -113,7 +113,7 @@ class main{
 
 		vector corrupted_signal = complete_signal.copy();
 
-		//Setting random places in my signal equal to +
+		//Setting random places in my signal equal to a corrupted value
 		Random rand = new Random();
 		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = -1000;
 		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = -1000;
@@ -128,7 +128,66 @@ class main{
 		corrupted.Close();
 
 		//Now to do the actual recovery
+		int n3 = 6; //setting number of coefficients
 
+		//Filtering the corrupted signal to remove the "bad" points and then fitting to the filtered signal
+		List<double> good_values = new List<double>();
+
+		for(int i = 0; i < corrupted_signal.size; i++){
+			if(corrupted_signal[i] != -1000){
+				good_values.Add(corrupted_signal[i]);
+			}
+		}
+
+		vector filtered_signal = new vector(good_values.ToArray());
+
+		//Applying the prediction to the filtered signal
+		vector a3 = ls.predict(filtered_signal,n3);
+
+		//Looping over the corrupted signal and using prediction to replace any found corrupted values
+		vector recovered_signal = corrupted_signal.copy();
+
+		bool continue_recovery;
+
+		int iteration = 0;
+		int max_iteration = 10;
+		do {
+			continue_recovery = false; //anticipating that we don't need to do a loop after this one
+			iteration++;
+			//Scanning through the initially corrupted signal to see if any bad points remain
+			for(int i = n3; i < recovered_signal.size; i++){ //Starting from n3 as we need that many points for prediction
+				if(recovered_signal[i] == -1000){
+					bool can_predict = true;
+					for(int j = 0; j < n3; j++){ //Now we loop through the n points before the bad one
+								//to see if they are good, which is needed for prediction
+						if(recovered_signal[i-n3+j] == -1000){
+							can_predict = false;
+							break;
+						}
+					}
+
+					if(can_predict){ //if we can predict, we make local prediction via eq. 22 from notes
+						double prediction = 0;
+						for(int j = 0; j < n3; j++){
+							prediction += a3[j]*recovered_signal[i-n3+j];
+						}
+						recovered_signal[i] = prediction;
+						continue_recovery = true;
+					}
+				}
+			}
+			if(iteration > max_iteration){
+			Error.WriteLine("Timeout - Max iterations reached in signal recovery loop!");
+			break;
+			}
+		} while(continue_recovery);
+
+		//Writing datafile for the (hopefully) recovered data
+		var recovered = new StreamWriter("recovered_signal.txt");
+		for(int i = 0; i < recovered_signal.size; i++){
+			recoverede.WriteLine($"{i.ToString(CultureInfo.InvariantCulture)} {recovered_signal[i].ToString(CultureInfo.InvariantCulture)}");
+		}
+		recovered.Close();
 
 	}// End of Main()
 
