@@ -2,8 +2,9 @@ using System;
 using static System.Math;
 using static System.Console;
 using System.IO;
-using System.Random;
+using static System.Random;
 using System.Globalization; // Import for invariant culture
+using System.Collections.Generic;
 
 class main{
 
@@ -114,11 +115,12 @@ class main{
 		vector corrupted_signal = complete_signal.copy();
 
 		//Setting random places in my signal equal to a corrupted value
+		double corrupt_number = -5;
 		Random rand = new Random();
-		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = -1000;
-		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = -1000;
-		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = -1000;
-		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = -1000;
+		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = corrupt_number;
+		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = corrupt_number;
+		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = corrupt_number;
+		corrupted_signal[rand.Next(0,corrupted_signal.size-1)] = corrupt_number;
 
 		//Writing the corrupted datafile
 		var corrupted = new StreamWriter("corrupted_signal.txt");
@@ -134,7 +136,7 @@ class main{
 		List<double> good_values = new List<double>();
 
 		for(int i = 0; i < corrupted_signal.size; i++){
-			if(corrupted_signal[i] != -1000){
+			if(corrupted_signal[i] != corrupt_number){
 				good_values.Add(corrupted_signal[i]);
 			}
 		}
@@ -156,11 +158,11 @@ class main{
 			iteration++;
 			//Scanning through the initially corrupted signal to see if any bad points remain
 			for(int i = n3; i < recovered_signal.size; i++){ //Starting from n3 as we need that many points for prediction
-				if(recovered_signal[i] == -1000){
+				if(recovered_signal[i] == corrupt_number){
 					bool can_predict = true;
 					for(int j = 0; j < n3; j++){ //Now we loop through the n points before the bad one
 								//to see if they are good, which is needed for prediction
-						if(recovered_signal[i-n3+j] == -1000){
+						if(recovered_signal[i-n3+j] == corrupt_number){
 							can_predict = false;
 							break;
 						}
@@ -185,9 +187,18 @@ class main{
 		//Writing datafile for the (hopefully) recovered data
 		var recovered = new StreamWriter("recovered_signal.txt");
 		for(int i = 0; i < recovered_signal.size; i++){
-			recoverede.WriteLine($"{i.ToString(CultureInfo.InvariantCulture)} {recovered_signal[i].ToString(CultureInfo.InvariantCulture)}");
+			recovered.WriteLine($"{i.ToString(CultureInfo.InvariantCulture)} {recovered_signal[i].ToString(CultureInfo.InvariantCulture)}");
 		}
 		recovered.Close();
+
+		WriteLine("The result of exercise C can be found in recovered_vs_corrupted.png");
+		WriteLine("Here, the true complete signal is shown by the circles");
+		WriteLine("the corrupted signal is shown by the * connect by -.-.");
+		WriteLine("and the recovered signal is the solid line.");
+		WriteLine("It looks like it recovers the signal quite well :D");
+		WriteLine("Now this might not be super general, as the recovery depends on knowing the corrupted value");
+		WriteLine("but perhaps this comes already given from the hardware side or one can just implement a min and max");
+		WriteLine("accepted value and treat everything outside of that as corrupted/wrong, I just chose to do it the other way.");
 
 	}// End of Main()
 

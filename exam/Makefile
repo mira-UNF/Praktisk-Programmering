@@ -8,8 +8,11 @@ PREDICT = predicted_signal.txt
 PLOT_PREDICT = signal_prediction.png
 ERROR = error_vs_n.txt
 PLOT_ERROR = error_vs_n.png
+CORRUPT = corrupted_signal.txt
+RECOV = recovered_signal.txt
+PLOT_RECOV = recovered_vs_corrupted.png
 
-all: run $(EXEC) $(SIGNAL) $(PREDICT) $(PLOT_PREDICT) $(ERROR) $(PLOT_ERROR) Out.txt
+all: run $(EXEC) $(SIGNAL) $(PREDICT) $(PLOT_PREDICT) $(ERROR) $(PLOT_ERROR) $(CORRUPT) $(RECOV) $(PLOT_RECOV) Out.txt
 
 run: $(EXEC)
 	mono $(EXEC) > Out.txt
@@ -28,6 +31,13 @@ $(PLOT_ERROR): $(ERROR)
 	graph -T png -x 1 6 -y -1 6 -X "n value" -Y "Mean Squared Error" -L "Error vs n" --bitmap-size 800x600 \
 		-S 1 -m 1 $(ERROR) \
 	> $(PLOT_ERROR)
+
+$(PLOT_RECOV): $(CORRUPT) $(RECOV) $(SIGNAL)
+	graph -T png -x 0 100 -y -5 4 -X "Index" -Y "Signal" -L "Least Squares Recovery" --bitmap-size 800x600 \
+		-S 1 -m 1 $(RECOV) \
+		-S 4 -m 0 $(SIGNAL) \
+		-S 5 -m 3 $(CORRUPT) \
+	> $(PLOT_RECOV)
 
 # Compile the matrix library
 matrix.dll: ../homework/classes/matrix.cs ../homework/classes/genlist.cs ../homework/classes/vector.cs ../homework/classes/QR_GS.cs least_squares_prediction.cs   

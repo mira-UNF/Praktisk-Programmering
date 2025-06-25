@@ -6,7 +6,7 @@ Task
 Implement a function with the signature vector predict(vector x, int n)
 that takes the signal vector and the number of terms as input and returns the vector of coefficients that can be used to extrapolate the signal using the linear prediction formula,
 
-I have interpreted the above task as the following
+I have interpreted the above task in an ABC-format in the following way
 PART A) Implement a least squares prediction method and show that it works, fx. by remaking figure 2 of the notes
 
 PART B) Make an estimate of the error of the method
@@ -16,9 +16,19 @@ PART C) Try to implement the predictor to do signal recovery
 --------------------------------PART A--------------------------------
 The plot of the complete signal compared to the predicted signal, which is for index 50 to 100, can be
 found in signal_prediction.png. The complete signal are the circles, the predicted is the solid line.
+
 --------------------------------PART B--------------------------------
 To examine the error I have made a plot of mean squared error vs number of coefficients (n)
 This plot can be found in error_vs_n.png
 Now, even though it looks very nice it is important to remember that too many parameters
 can cause overfitting, which worsens the fit quality.
+
 --------------------------------PART C--------------------------------
+The result of exercise C can be found in recovered_vs_corrupted.png
+Here, the true complete signal is shown by the circles
+the corrupted signal is shown by the * connect by -.-.
+and the recovered signal is the solid line.
+It looks like it recovers the signal quite well :D
+Now this might not be super general, as the recovery depends on knowing the corrupted value
+but perhaps this comes already given from the hardware side or one can just implement a min and max
+accepted value and treat everything outside of that as corrupted/wrong, I just chose to do it the other way.
